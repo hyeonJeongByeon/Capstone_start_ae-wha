@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<style>
+body
+{
+  margin: 0 auto;
+  width: 700px;
+}
+</style>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Converter</title>
+</head>
+
+<body>
+  <h2>Voice Converter Web</h2>
+  <h4>Instructions</h4>
+  <h4>1. Upload your voice file as an input. </h4>
+  <h4>2. Move the sliders to adjust the four features and press the 'Confirm' button.</h4>
+  <h4>3. Listen to your manipulated voice that appears at the bottom.</h4>
+<div id="original_voice" style="margin-top: 40px; margin-bottom: 50px;">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  function handleFiles(event) {
+    var files = event.target.files;
+    $("#src").attr("src", URL.createObjectURL(files[0]));
+    document.getElementById("audio").load();
+}
+
+document.getElementById("upload").addEventListener("change", handleFiles, false);
+</script>
+<input type="file" id="upload" />
+<audio id="audio" controls>
+  <source src="" id="src" />
+</audio>
+
+
+
+<!--
+<audio controls >
+  <source src="https://docs.google.com/uc?export=open&id=1LRtcGswot6eGm6hrq3_OYKkJS9SPd3Ie" type='audio/mp3' />
+ </audio>
+-->
+</div>
+
+<div id="slider_div">
+  <div style="display: flex; margin-left: 150px;">
+  <div>
+    <p>Pitch</p>
+    <p>Formant</p>
+    <p>Intensity</p>
+    <p>Speed</p>
+</div>
+<div style="margin-top: 10px; margin-left: 8px;">
+    <div style="margin-left: 5px">
+      <input type="range" class="form-range" id="customRange1">
+    </div> 
+    <div style="margin-top: 15px; margin-left: 8px;">
+      <input type="range" class="form-range" id="customRange2">
+    </div> 
+    <div style="margin-top: 14px; margin-left: 8px;">
+      <input type="range" class="form-range" id="customRange3">
+    </div>
+    <div style="margin-top: 14px; margin-left: 8px;">
+      <input type="range" class="form-range" id="customRange4">
+    </div>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 30px; margin-bottom: 30px;">
+
+  <button onclick="showAudio()" style="margin-left: 230px; margin-bottom: 20px;">Confirm</button>
+  <div id="manipulated_voice" style="display:none; margin-left: 100px;">
+    <audio controls>
+      <source src="https://docs.google.com/uc?export=open&id=19-UImTJSCx8bxm6-nBDdJcstE5piGfFL" type='audio/mp3' />
+     </audio>
+  </div>
+  <script type="text/javascript">
+    function showDiv() {
+      document.getElementById('welcomeDiv').style.display = "block";
+    } 
+
+    function showAudio() {
+      document.getElementById("manipulated_voice").style.display="block";
+    }
+  </script>
+  
+</div>
+
+</body>
+</html>
